@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-def islower(ch):
+def islower(c):
 
-    if ord(ch) >= 97 and ord(ch) <= 122:
+    if ord(c) >= 97 and ord(c) <= 122:
 	return True
     else:
         return False
