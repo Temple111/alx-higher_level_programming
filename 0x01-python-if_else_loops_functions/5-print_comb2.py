@@ -1,3 +1,6 @@
 #!/usr/bin/python3
-for num in range(00, 100):
-    print("{:02d}".format(num), end='\n' if num == 99 else ", ")
+for figure in range(0, 100):
+    if figure == 99:
+        print("{}".format(figure))
+    else:
+        print("{:02d}".format(figure), end=", ")
