@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
-for alphas in range(97, 123):
-    if chr(alphas) is not 'q' and chr(alphas) is not 'e':
-        print("{:c}".format(alphas), end='')
+for alpha in range(97, 123):
+    if chr(alpha) is not 'q' and chr(alpha) is not 'e':
+        print("{}".format(chr(alpha)), end="")
+
