@@ -3,17 +3,17 @@ import sys
 
 if __name__ == "__main__":
 
-    arg = sys.argv
-    size = len(arg) - 1
+    av = sys.argv
+    list_size = len(av) - 1
 
-    if size > 1:
-        print("{} arguments:".format(size))
-        for i in range(1, size + 1):
-            print("{}: {}".format(i, arg[i]))
+    if list_size > 1:
+        print("{} arguments:".format(list_size))
+        for a in range(1, list_size + 1):
+            print("{}: {}".format(a, av[a]))
 
-    elif size == 0:
-        print("{} arguments.".format(size))
+    elif list_size == 0:
+        print("{} arguments.".format(list_size))
 
     else:
-        print("{} argument:".format(size))
-        print("{}: {}".format(size, arg[1]))
+        print("{} argument:".format(list_size))
+        print("{}: {}".format(list_size, av[1]))
