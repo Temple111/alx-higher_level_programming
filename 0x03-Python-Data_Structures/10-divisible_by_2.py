@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 def divisible_by_2(my_list=[]):
-    boolist = my_list[:]
-    for count, i in enumerate(my_list):
-        if i % 2 == 0:
-            boolist[count] = True
+    mult_of_2 = my_list[:]
+    for increase, z in enumerate(my_list):
+        if z % 2 == 0:
+            mult_of_2[increase] = True
         else:
-            boolist[count] = False
-    return(boolist)
+            mult_of_2[increase] = False
+    return(mult_of_2)

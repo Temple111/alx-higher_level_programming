@@ -1,33 +1,28 @@
-/*
- * File: 13-is_palindrome.c
- * Auth: Mbah Nkemdinma
- */
-
 #include "lists.h"
 
-listint_t *reverse_listint(listint_t **head);
+listint_t *list_reverse(listint_t **head_ptr);
 int is_palindrome(listint_t **head);
 
 /**
- * reverse_listint - Reverses a singly-linked listint_t list.
- * @head: A pointer to the starting node of the list to reverse.
+ * list_reverse - Reverses a singly-linked listint_t list.
+ * @head_ptr: A pointer to the starting node of the list to reverse.
  *
  * Return: A pointer to the head of the reversed list.
  */
-listint_t *reverse_listint(listint_t **head)
+listint_t *list_reverse(listint_t **head_ptr)
 {
-	listint_t *node = *head, *next, *prev = NULL;
+	listint_t *nd = *head_ptr, *link, *prev_nd = NULL;
 
-	while (node)
+	while (nd)
 	{
-		next = node->next;
-		node->next = prev;
-		prev = node;
-		node = next;
+		link = nd->next;
+		nd->next = prev_nd;
+		prev_nd = nd;
+		nd = link;
 	}
 
-	*head = prev;
-	return (*head);
+	*head_ptr = prev_nd;
+	return (*head_ptr);
 }
 
 /**
@@ -39,39 +34,39 @@ listint_t *reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp, *rev, *mid;
-	size_t size = 0, i;
+	listint_t *cmp, *re, *md;
+	size_t sz = 0, a;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	tmp = *head;
-	while (tmp)
+	cmp = *head;
+	while (cmp)
 	{
-		size++;
-		tmp = tmp->next;
+		sz++;
+		cmp = cmp->next;
 	}
 
-	tmp = *head;
-	for (i = 0; i < (size / 2) - 1; i++)
-		tmp = tmp->next;
+	cmp = *head;
+	for (a = 0; a < (sz / 2) - 1; a++)
+		cmp = cmp->next;
 
-	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+	if ((sz % 2) == 0 && cmp->n != cmp->next->n)
 		return (0);
 
-	tmp = tmp->next->next;
-	rev = reverse_listint(&tmp);
-	mid = rev;
+	cmp = cmp->next->next;
+	re = list_reverse(&cmp);
+	md = re;
 
-	tmp = *head;
-	while (rev)
+	cmp = *head;
+	while (re)
 	{
-		if (tmp->n != rev->n)
+		if (cmp->n != re->n)
 			return (0);
-		tmp = tmp->next;
-		rev = rev->next;
+		cmp = cmp->next;
+		re = re->next;
 	}
-	reverse_listint(&mid);
+	list_reverse(&md);
 
 	return (1);
 }
