@@ -10,13 +10,13 @@ void print_python_float(PyObject *p);
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t sz, alloc, a;
+	Py_ssize_t sz, aloc, a;
 	const char *tp;
 	PyListObject *list = (PyListObject *)p;
 	PyVarObject *var = (PyVarObject *)p;
 
 	sz = var->ob_size;
-	alloc = list->allocated;
+	aloc = list->allocated;
 
 	fflush(stdout);
 
@@ -28,7 +28,7 @@ void print_python_list(PyObject *p)
 	}
 
 	printf("[*] Size of the Python List = %ld\n", sz);
-	printf("[*] Allocated = %ld\n", alloc);
+	printf("[*] Allocated = %ld\n", aloc);
 
 	for (a = 0; a < sz; a++)
 	{
