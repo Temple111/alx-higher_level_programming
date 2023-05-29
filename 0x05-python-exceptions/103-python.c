@@ -47,7 +47,7 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t size, i;
+	Py_ssize_t sz, a;
 	PyBytesObject *bytes = (PyBytesObject *)p;
 
 	fflush(stdout);
@@ -63,15 +63,15 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", bytes->ob_sval);
 
 	if (((PyVarObject *)p)->ob_size >= 10)
-		size = 10;
+		sz = 10;
 	else
-		size = ((PyVarObject *)p)->ob_size + 1;
+		sz = ((PyVarObject *)p)->ob_size + 1;
 
-	printf("  first %ld bytes: ", size);
-	for (i = 0; i < size; i++)
+	printf("  first %ld bytes: ", sz);
+	for (a = 0; a < sz; a++)
 	{
-		printf("%02hhx", bytes->ob_sval[i]);
-		if (i == (size - 1))
+		printf("%02hhx", bytes->ob_sval[a]);
+		if (a == (sz - 1))
 			printf("\n");
 		else
 			printf(" ");
