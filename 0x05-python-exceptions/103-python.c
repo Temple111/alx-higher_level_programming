@@ -34,10 +34,10 @@ void print_python_list(PyObject *p)
 	{
 		tp = lt->ob_item[a]->ob_type->tp_name;
 		printf("Element %ld: %s\n", a, tp);
-		if (strcmp(type, "bytes") == 0)
+		if (strcmp(tp, "bytes") == 0)
 			print_python_bytes(lt->ob_item[a]);
-		else if (strcmp(type, "float") == 0)
-			print_python_float(list->ob_item[a]);
+		else if (strcmp(tp, "float") == 0)
+			print_python_float(lt->ob_item[a]);
 	}
 }
 
@@ -65,7 +65,7 @@ void print_python_bytes(PyObject *p)
 	if (((PyVarObject *)p)->ob_size >= 10)
 		sz = 10;
 	else
-		sze\ = ((PyVarObject *)p)->ob_size + 1;
+		sz = ((PyVarObject *)p)->ob_size + 1;
 
 	printf("  first %ld bytes: ", sz);
 	for (a = 0; a < sz; a++)
