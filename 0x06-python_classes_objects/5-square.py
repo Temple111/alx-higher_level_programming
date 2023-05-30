@@ -5,35 +5,35 @@
 class Square:
     """Represent a square."""
 
-    def __init__(self, size):
+    def __init__(se, size):
         """Initialize a new square.
 
         Args:
             size (int): The size of the new square.
         """
-        self.size = size
+        se.size = size
 
     @property
-    def size(self):
+    def size(se):
         """Get/set the current size of the square."""
-        return (self.__size)
+        return (se.__size)
 
     @size.setter
-    def size(self, value):
-        if not isinstance(value, int):
+    def size(se, val):
+        if not isinstance(val, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+        elif val < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        se.__size = val
 
-    def area(self):
+    def area(se):
         """Return the current area of the square."""
-        return (self.__size * self.__size)
+        return (se.__size * se.__size)
 
-    def my_print(self):
+    def my_print(se):
         """Print the square with the # character."""
-        for i in range(0, self.__size):
-            [print("#", end="") for j in range(self.__size)]
+        for o in range(0, se.__size):
+            [print("#", end="") for o in range(se.__size)]
             print("")
-        if self.__size == 0:
+        if se.__size == 0:
             print("")
