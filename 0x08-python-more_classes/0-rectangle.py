@@ -1,7 +1,16 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+
+"""Rectangle Class.
+This module contains an empty class that defines a rectangle.
+Usage Example:
+    Rectangle = __import__('0-rectangle').Rectangle
+    my_rectangle = Rectangle()
+    print(type(my_rectangle))
+    print(my_rectangle.__dict__)
+"""
 
 
 class Rectangle:
-    """Represent a rectangle."""
+    """Defines the blueprint of a rectangle"""
+
     pass
