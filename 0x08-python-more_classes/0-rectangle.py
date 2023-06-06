@@ -6,4 +6,5 @@ Define a class: Rectangle
 
 class Rectangle():
     '''A class to represent a rectangle.'''
-    pass
+
+    pass
